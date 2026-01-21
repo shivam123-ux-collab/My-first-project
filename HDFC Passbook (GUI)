@@ -1,0 +1,234 @@
+from tkinter import ttk
+import tkinter as tk
+
+balance_amt = 0   
+mode = ""         
+
+window = tk.Tk()
+window.title("Passbook")
+window.config(bg="light blue")
+
+main = ("segoe UI", 18, "bold")
+temp = ("algerian",13,"bold")
+rent = ("algerian",14,"bold")
+block = ("algedian",11,"bold")
+
+
+title = tk.Label(text="HDFC Bank",bg="yellow", font=main)
+title.config(font=main)
+title.pack()
+
+
+
+
+def withd_m():
+    global mode
+    mode = "debit"
+    title.config(text="Enter amount", font=main)
+    withdraw.place_forget()
+    balance.place_forget()
+    deposit.place_forget()
+    back.place(x=750, y=120)
+    entry.place(x=10, y=500)
+    one.place(x=17, y=950)
+    two.place(x=390, y=950)
+    three.place(x=750, y=950)
+    four.place(x=17, y=1250)
+    five.place(x=390, y=1250)
+    six.place(x=750, y=1250)
+    seven.place(x=17, y=1550)
+    eight.place(x=390, y=1550)
+    nine.place(x=750, y=1550)
+    zero.place(x=17, y=1850)
+    clear.place(x=390, y=1850)
+    next.place(x=750, y=1850)
+
+
+def check_m():
+    title.config(text=f"Current Balance : Rs.{balance_amt}",font=rent)
+    withdraw.place_forget()
+    balance.place_forget()
+    deposit.place_forget()
+    next.place_forget()
+    back.place(x=750, y=120)
+
+
+def deposit_m():
+    global mode 
+    mode = "credit"
+    title.config(text="Make Deposit", font=main)
+    withdraw.place_forget()
+    balance.place_forget()
+    deposit.place_forget()
+    back.place(x=750, y=120)
+    entry.place(x=10, y=500)
+    one.place(x=17, y=950)
+    two.place(x=390, y=950)
+    three.place(x=750, y=950)
+    four.place(x=17, y=1250)
+    five.place(x=390, y=1250)
+    six.place(x=750, y=1250)
+    seven.place(x=17, y=1550)
+    eight.place(x=390, y=1550)
+    nine.place(x=750, y=1550)
+    zero.place(x=17, y=1850)
+    clear.place(x=390, y=1850)
+    next.place(x=750, y=1850)
+
+
+def back_m():
+    title.config(text="HDFC Bank", font=main)
+    withdraw.place(x=100, y=800)
+    balance.place(x=100, y=1200)
+    deposit.place(x=100, y=1600)
+    back.place_forget()
+    next.place_forget()
+    entry.place_forget()
+    one.place_forget()
+    two.place_forget()
+    three.place_forget()
+    four.place_forget()
+    five.place_forget()
+    six.place_forget()
+    seven.place_forget()
+    eight.place_forget()
+    nine.place_forget()
+    zero.place_forget()
+    clear.place_forget()
+
+
+
+    
+    
+
+
+withdraw = tk.Button(window, text="Withdraw", borderwidth=12, width=15, font=("algerian", 15, "bold"), command=withd_m)
+withdraw.place(x=100, y=800)
+
+balance = tk.Button(window, text="Check Balance", borderwidth=12, width=15, font=("algerian", 15, "bold"), command=check_m)
+balance.place(x=100, y=1200)
+
+deposit = tk.Button(window, text="Deposit", borderwidth=12, width=15, font=("algerian", 15, "bold"), command=deposit_m)
+deposit.place(x=100, y=1600)
+
+back = tk.Button(window, text="<-", borderwidth=12, width=5, font=("algerian", 10, "bold"), command=back_m)
+back.place_forget()
+
+entry = tk.Entry(borderwidth=12, width=20, font=("algerian", 17, "bold"))
+entry.place_forget()
+
+
+def click(a):
+    entry.insert(tk.END, str(a))
+
+
+one = tk.Button(window, text="1", borderwidth=7, width=7, height=2,bg="black",fg="white",command=lambda: click(1))
+one.place_forget()
+
+two = tk.Button(window, text="2", borderwidth=7, width=7, height=2,bg="black",fg="white" ,command=lambda: click(2))
+two.place_forget()
+
+three = tk.Button(window, text="3",bg="black" ,fg="white",borderwidth=7, width=7, height=2, command=lambda: click(3))
+three.place_forget()
+
+four = tk.Button(window, text="4",bg="black", fg="white",borderwidth=7, width=7, height=2, command=lambda: click(4))
+four.place_forget()
+
+five = tk.Button(window, text="5",bg="black", fg="white",borderwidth=7, width=7, height=2, command=lambda: click(5))
+five.place_forget()
+
+six = tk.Button(window, text="6",bg="black",fg="white" ,borderwidth=7, width=7, height=2, command=lambda: click(6))
+six.place_forget()
+
+seven = tk.Button(window, text="7",bg="black",fg="white" ,borderwidth=7, width=7, height=2, command=lambda: click(7))
+seven.place_forget()
+
+eight = tk.Button(window, text="8",bg="black",fg="white", borderwidth=7, width=7, height=2, command=lambda: click(8))
+eight.place_forget()
+
+nine = tk.Button(window, text="9",bg="black",fg="white", borderwidth=7, width=7, height=2, command=lambda: click(9))
+nine.place_forget()
+
+zero = tk.Button(window, text="0",bg="black", fg="white",borderwidth=7, width=7, height=2, command=lambda: click(0))
+zero.place_forget()
+
+
+def c():
+    entry.delete(0, tk.END)
+
+
+clear = tk.Button(window, text="C",bg="black",fg="white", borderwidth=7, width=7, height=2, command=c)
+clear.place_forget()
+
+def n():
+    title.config(text="Thank you !! for visiting HDFC Bank", font=("algerian", 12, "bold"))
+    withdraw.place_forget()
+    balance.place_forget()
+    deposit.place_forget()
+    next.place_forget()
+    back.place(x=750, y=120)
+    entry.place_forget()
+    one.place_forget()
+    two.place_forget()
+    three.place_forget()
+    four.place_forget()
+    five.place_forget()
+    six.place_forget()
+    seven.place_forget()
+    eight.place_forget()
+    nine.place_forget()
+    zero.place_forget()
+    clear.place_forget()
+
+def calculation():
+	global balance_amt,mode
+	
+	amt = entry.get()
+	
+	if amt == "" or not amt.isdigit():
+		title.config(text="Enter valid number",font=rent)
+		return 
+	amt = int(amt)
+	entry.delete(0,tk.END)
+	
+	if mode == "credit":
+		balance_amt +=amt
+		title.config(text=f"{amt} credited in your account",font=rent)
+		
+	elif mode == "debit":
+		if amt>balance_amt:
+			title.config(text="Insufficient balance",font=temp)
+		else:
+			balance_amt -=amt
+			title.config(text=f"{amt} was debited from your account",font=block)
+			
+				
+	withdraw.place_forget()
+	balance.place_forget()
+	deposit.place_forget()
+	next.place_forget()
+	back.place(x=750,y=120)
+	entry.place_forget()
+	one.place_forget()
+	two.place_forget()
+	three.place_forget()
+	four.place_forget()
+	five.place_forget()
+	six.place_forget()
+	seven.place_forget()
+	eight.place_forget()
+	nine.place_forget()
+	zero.place_forget()
+	clear.place_forget()
+			
+next = tk.Button(window, text="Next",bg="grey",fg="blue",borderwidth=7, width=7, height=2, font=("algerian", 8, "bold"), command=calculation)
+next.place_forget()
+
+
+			
+			
+
+
+
+
+window.mainloop()
