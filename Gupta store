@@ -1,0 +1,187 @@
+import qrcode
+from PIL import Image, ImageTk
+import tkinter as tk
+
+window = tk.Tk()
+window.config(bg="orange")
+main = ("algerian",18,"bold")
+
+panipuri_price = 20
+dabeli_price = 15
+dahipuri_price = 40
+sevpuri_price = 25
+ragdapuri_price = 25
+bhel_price = 20
+
+def calculation():
+	total = (panipuriqty.get()*panipuri_price+
+	dabeliqty.get()*dabeli_price+
+	bhelqty.get()*bhel_price+
+	dahipuriqty.get()*dahipuri_price+
+	sevpuriqty.get()*sevpuri_price+
+	ragda_puriqty.get()*ragdapuri_price)
+	return total
+
+title = tk.Label(text="Gupta Store's ",font=("algerian",18,"bold"))
+title.config(bg="orange",fg="black")
+title.pack()
+
+label = tk.Label(window,bg="white")
+label.place_forget()
+
+def next_button():
+	total = calculation()
+	
+	if total == 0:
+		title.config(text="Please select Quantity")
+		return 
+	#title.config(text="Scan Qr",bg="white")
+	window.config(bg="white")
+	panipuri.place_forget()
+	dabeli.place_forget()
+	ragda_puri.place_forget()
+	bhel.place_forget()
+	dahipuri.place_forget()
+	sevpuri.place_forget()
+	panipuri_qty.place_forget()
+	dabeli_qty.place_forget()
+	bhel_qty.place_forget()
+	dahipuri_qty.place_forget()
+	sevpuri_qty.place_forget()
+	ragda_puri_qty.place_forget()
+	next.place_forget()
+	back.place(x=700,y=150)
+	generate(total)
+	label.place(x=100,y=700)
+	
+	
+def back_button():
+	title.config(text="Gupta Store's",bg="orange")
+	window.config(bg="orange")
+	panipuri.place(x=17,y=400)
+	dabeli.place(x=17,y=700)
+	ragda_puri.place(x=17,y=1900)
+	bhel.place(x=17,y=1000)
+	dahipuri.place(x=17,y=1300)
+	sevpuri.place(x=17,y=1600)
+	panipuri_qty.place(x=760,y=420)
+	dabeli_qty.place(x=760,y=720)
+	bhel_qty.place(x=760,y=1020)
+	dahipuri_qty.place(x=760,y=1320)
+	sevpuri_qty.place(x=760,y=1620)
+	ragda_puri_qty.place(x=760,y=1920)
+	next.place(x=700,y=150)
+	back.place_forget()
+	label.place_forget()
+	
+back = tk.Button(window,text="Back",font=("algerian",17,"bold"),bg="black",fg="red",width=4,borderwidth=12,command=back_button)
+back.place_forget()
+	
+	
+next = tk.Button(window,text="Next",font=("algerian",17,"bold"),bg="black",fg="red",width=4,borderwidth=12,command=next_button)
+next.place(x=700,y=150)
+
+
+panipuri = tk.Button(window,text="Panipuri - Rs.20",font=("algerian",15,"bold"),borderwidth=12,width=12)
+panipuri.config(bg="yellow",fg="black")
+panipuri.place(x=17,y=400)
+
+panipuriqty= tk.IntVar(value=0)
+panipuri_qty = tk.Spinbox(textvariable=panipuriqty,width=3,values=(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20),font=("algerian",19,"bold"),wrap=True)
+panipuri_qty.place(x=760,y=420)
+
+dabeli = tk.Button(window,text="Dabeli - Rs.15",font=("algerian",15,"bold"),borderwidth=12,width=12)
+dabeli.config(bg="yellow",fg="black")
+dabeli.place(x=17,y=700)
+
+dabeliqty = tk.IntVar(value=0)
+dabeli_qty = tk.Spinbox(textvariable=dabeliqty,width=3,values=(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20),font=("algerian",19,"bold"),wrap=True)
+dabeli_qty.place(x=760,y=720)
+
+bhel = tk.Button(window,text="Bhel - Rs.20",font=("algerian",15,"bold"),borderwidth=12,width=12)
+bhel.config(bg="yellow",fg="black")
+bhel.place(x=17,y=1000)
+
+bhelqty= tk.IntVar(value=0)
+bhel_qty = tk.Spinbox(textvariable=bhelqty,width=3,values=(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20),font=("algerian",19,"bold"),wrap=True)
+bhel_qty.place(x=760,y=1020)
+
+dahipuri = tk.Button(window,text="Dahipuri - Rs.40",font=("algerian",15,"bold"),borderwidth=12,width=12)
+dahipuri.config(bg="yellow",fg="black")
+dahipuri.place(x=17,y=1300)
+
+dahipuriqty = tk.IntVar(value=0)
+dahipuri_qty = tk.Spinbox(textvariable=dahipuriqty,width=3,values=(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20),font=("algerian",19,"bold"),wrap=True)
+dahipuri_qty.place(x=760,y=1320)
+
+sevpuri = tk.Button(window,text="Sevpuri - Rs.25",font=("algerian",15,"bold"),borderwidth=12,width=12)
+sevpuri.config(bg="yellow",fg="black")
+sevpuri.place(x=17,y=1600)
+
+sevpuriqty = tk.IntVar(value=0)
+sevpuri_qty = tk.Spinbox(textvariable=sevpuriqty,width=3,values=(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20),font=("algerian",19,"bold"),wrap=True)
+sevpuri_qty.place(x=760,y=1620)
+
+ragda_puri = tk.Button(window,text="RagdaPuri - Rs.25",font=("algerian",15,"bold"),borderwidth=12,width=12)
+ragda_puri.config(bg="yellow",fg="black")
+ragda_puri.place(x=17,y=1900)
+
+ragda_puriqty = tk.IntVar(value=0)
+ragda_puri_qty = tk.Spinbox(textvariable=ragda_puriqty,width=3,values=(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20),font=("algerian",19,"bold"),wrap=True)
+ragda_puri_qty.place(x=760,y=1920)
+
+
+#QR code generating
+
+
+def generate(total):
+	upi_id = "shivam890123890@okhdfcbank"
+	name = "Shivam Gupta"
+	
+	upi_link = f"upi://pay?pa={upi_id}&pn={name}&am={total}&cu=INR"
+	
+	img = qrcode.make(upi_link)
+	img.save("qr.png")
+	qr_img = img.resize((900,900))
+	tk_img = ImageTk.PhotoImage(qr_img)
+	
+	label.config(image=tk_img)
+	label.image = tk_img
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.mainloop()
